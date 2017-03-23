@@ -6,10 +6,12 @@
 	},
 	"repository": {
 		"type": "git",
-		"url": "git+https://github.com/hanzeljesheen/node-replicate.git"
+		"url": "git+https://github.com/saiganeshsunkari/as-lb.git"
 	},
 	"license": "GPL-3.0",
 	"dependencies": {
+	        "cfenv": "^1.0.4",
+		"express": "^4.15.2",
 		"koa": "1.2.0"
 	}
 }
