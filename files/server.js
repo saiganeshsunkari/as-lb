@@ -2,7 +2,6 @@ const app = require('koa')(),
     fs = require('fs'),
     exec = require('child_process').exec,
     path = require('path');
-    console.log('nen rasifi',appEnv.url);
 
 const index = path.resolve(__dirname, 'index.html'),
     host = process.env.HOSTNAME;    
