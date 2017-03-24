@@ -1,4 +1,6 @@
+var os=require('os');
 var cfenv=require('cfenv');
+
 var appEnv=cfenv.getAppEnv();
 const app = require('koa')(),
     fs = require('fs'),
@@ -32,7 +34,10 @@ app.use(function*() {
         this.body = yield readFileThunk(index);
     } else if (this.url === '/run') {
         this.body = yield execThunk('curl --insecure --cert /ssl/cert.pem --key /ssl/key.pem "https://replicator/$HOSTNAME"');
-    } else {
+    } 
+    else if(this.url==='/jik'){
+    		this.body=yield {"host1":host};
+			}else {
         this.status = 404;
         this.body = 'invalid address';
     }
