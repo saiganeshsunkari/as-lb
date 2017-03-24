@@ -6,14 +6,14 @@ const app = require('koa')(),
     path = require('path');
 
     console.log('nen rasifi',appEnv.url);
-const index = path.resolve(__dirname, 'index.html'),    
+const index = path.resolve(__dirname, 'index.html')
+    var host = os.hostname();
 
 var readFileThunk = function(src) {
     return new Promise(function(resolve, reject) {
         fs.readFile(src, {'encoding': 'utf8'}, (err, data) => {
             if (err) return reject(err);
-	    console.log(data+'<div>'+appEnv.url+'</div>');
-	    resolve(data+'<div>'+appEnv.url+'</div>');
+	    resolve(data+'<div>'+host+'</div>');
         });
     });
 };
