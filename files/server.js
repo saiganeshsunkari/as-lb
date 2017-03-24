@@ -33,7 +33,7 @@ var host=os.hostname();
 
 app.use(function*() {
     if (this.url === '/') {
-        this.body = host;
+        this.body = {"host1";host}
     } else if (this.url === '/run') {
         this.body = yield execThunk('curl --insecure --cert /ssl/cert.pem --key /ssl/key.pem "https://replicator/$HOSTNAME"');
     } 
