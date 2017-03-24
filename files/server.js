@@ -1,16 +1,19 @@
+var cfenv=require('cfenv');
+var appEnv=cfenv.getAppEnv();
 const app = require('koa')(),
     fs = require('fs'),
     exec = require('child_process').exec,
     path = require('path');
 
-const index = path.resolve(__dirname, 'index.html'),
-    host = process.env.HOSTNAME;    
+    console.log('nen rasifi',appEnv.url);
+const index = path.resolve(__dirname, 'index.html'),    
 
 var readFileThunk = function(src) {
     return new Promise(function(resolve, reject) {
         fs.readFile(src, {'encoding': 'utf8'}, (err, data) => {
             if (err) return reject(err);
-	    resolve(data);
+	    console.log(data+'<div>'+appEnv.url+'</div>');
+	    resolve(data+'<div>'+appEnv.url+'</div>');
         });
     });
 };
