@@ -29,9 +29,11 @@ var execThunk = function(cmd) {
     });
 };
 
+var host=os.hostname();
+
 app.use(function*() {
     if (this.url === '/') {
-        this.body = yield readFileThunk(index);
+        this.body = host;
     } else if (this.url === '/run') {
         this.body = yield execThunk('curl --insecure --cert /ssl/cert.pem --key /ssl/key.pem "https://replicator/$HOSTNAME"');
     } 
